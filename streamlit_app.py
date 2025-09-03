@@ -88,7 +88,8 @@ def lines_to_gdocs(lines: List[str], indent_size: int = 2, bullet_symbol: str = 
         rest = unify_markers(rest)
         # Convert normalized "- " to preferred symbol
         rest = re.sub(r"^\-\s+", f"{bullet_symbol} ", rest)
-        line = f"{'\t' * level}{rest}"
+        tab_prefix = "\t" * level
+        line = f"{tab_prefix}{rest}"
         if trim_trailing_ws:
             line = line.rstrip()
         out.append(line)
